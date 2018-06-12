@@ -1,11 +1,15 @@
 package ui;
 import javax.swing.JOptionPane;
 import domain.Phone;
+import domain.CellPhone;
+import domain.IPhone;
+import domain.Galaxy;
 enum Butt{
 	EXIT,
 	TELEPHONE,
 	CELLPHONE,
-	SMARTPHONE
+	IPHONE,
+	Galaxy
 }
 public class PhoneMain {
 	public static void main(String[] args) {
@@ -13,10 +17,13 @@ public class PhoneMain {
 				Butt.EXIT,
 				Butt.TELEPHONE,
 				Butt.CELLPHONE,
-				Butt.SMARTPHONE
+				Butt.IPHONE,
+				Butt.Galaxy
 		};
-		Phone phone= null;
-		String output = "";
+		Phone phone = null;
+		CellPhone cp = null;
+		IPhone ip = null;
+		Galaxy gp = null;
 		while(true) {
 			Butt select = (Butt)JOptionPane.showInputDialog(
 					null,
@@ -30,37 +37,33 @@ public class PhoneMain {
 			switch(select) {
 			case EXIT : return;
 			case TELEPHONE :
-				output = "";
 				phone = new Phone();
 				phone.setName(JOptionPane.showInputDialog("이름"));
 				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				phone.setBrand();
-				phone.setKind(String.valueOf(select));
 				phone.setCall(JOptionPane.showInputDialog("통화내용"));
-				output = phone.toString();
-				JOptionPane.showMessageDialog(null,output);
+				JOptionPane.showMessageDialog(null,phone.toString());
 				break;
 			case CELLPHONE :
-				output = "";
-				phone = new Phone();
-				phone.setName(JOptionPane.showInputDialog("이름"));
-				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				phone.setBrand();
-				phone.setKind(String.valueOf(select));
-				phone.setCall(JOptionPane.showInputDialog("통화내용"));
-				output = phone.toString();
-				JOptionPane.showMessageDialog(null,output);
+				cp = new CellPhone();
+				cp.setName(JOptionPane.showInputDialog("이름"));
+				cp.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				cp.setCall(JOptionPane.showInputDialog("통화내용"));
+				JOptionPane.showMessageDialog(null,cp.toString());
 				break;
-			case SMARTPHONE :
-				output = "";
-				phone = new Phone();
-				phone.setName(JOptionPane.showInputDialog("이름"));
-				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				phone.setBrand();
-				phone.setKind(String.valueOf(select));
-				phone.setCall(JOptionPane.showInputDialog("통화내용"));
-				output = phone.toString();
-				JOptionPane.showMessageDialog(null,output);
+			case IPHONE :
+				ip = new IPhone();
+				ip.setName(JOptionPane.showInputDialog("이름"));
+				ip.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				ip.setData(JOptionPane.showInputDialog("문자내용"));
+				JOptionPane.showMessageDialog(null,ip.toString());
+				break;
+			case Galaxy :
+				gp = new Galaxy();
+				gp.setName(JOptionPane.showInputDialog("이름"));
+				gp.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				gp.setSize();
+				gp.setData(JOptionPane.showInputDialog("카톡내용"));
+				JOptionPane.showMessageDialog(null,gp.toString());
 				break;
 			}
 		}
