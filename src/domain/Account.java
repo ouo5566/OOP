@@ -9,32 +9,29 @@ public class Account {
 	public final static String DEPOSIT_SUCCESS="입금성공";
 	public final static String DEPOSIT_FAIL="적합한 입력값이 아님";
 	protected int money;
-	protected String name,uid,password,accountType,accountNo,createDate;
-	public void setMoney(int money) {
-		this.money = money;
-	}
-	public void setName(String name) {
-		this.name = name;
+	protected String name,uid,password,accountType,accountNo,createDate, deposit, withDraw;
+	public Account(String name, String uid, String password) {
 		setAccNum();
 		setCreateDate();
-	}
-	public void setUID(String uid) {
+		setAccType(ACCOUNT_TYPE);
+		this.name = name;
 		this.uid = uid;
+		this.password = password;
+	}
+	public void setMoney(int money) {
+		this.money += money;
 	}
 	public void setPW(String password) {
 		this.password = password;
 	}
-	public void setAccType() {
-		this.accountType = null;
+	public void setAccType(String accountType) {
+		this.accountType = accountType;
 	}
 	public void setAccNum() {
 		this.accountNo = String.format("%03d-%03d-%03d",(int)(Math.random()*1000),(int)(Math.random()*1000),(int)(Math.random()*1000));	
-		
 	}
 	public void setCreateDate() {
-		Date today = new Date();
-		SimpleDateFormat date = new SimpleDateFormat("yyyy년 MM월 dd일");
-		this.createDate = date.format(today);
+		this.createDate = new SimpleDateFormat("yyyy년 MM월 dd일").format(new Date());
 	}
 	public int getMoney() {
 		return money;
@@ -64,6 +61,6 @@ public class Account {
 				+ "계좌번호 : %s\n"
 				+ "이름 : %s\n"
 				+ "잔액 : %d 원\n"
-				, BANK_NAME, ACCOUNT_TYPE, createDate, accountNo, name, money);
+				, BANK_NAME, accountType, createDate, accountNo, name, money);
 	}
 }

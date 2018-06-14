@@ -58,12 +58,11 @@ public class Main {
 				JOptionPane.showMessageDialog(null, output);
 				break;
 			case "5":
-				salary = new Salary();
-				salary.setDept(JOptionPane.showInputDialog("부서를 입력하세요."));
-				salary.setName(JOptionPane.showInputDialog("이름을 입력하세요."));
-				salary.setSal(Integer.parseInt(JOptionPane.showInputDialog("본봉을 입력하세요.")));
-				salary.setBonus(Integer.parseInt(JOptionPane.showInputDialog("수당을 입력하세요.")));
-				salary.setTotal();
+//				salary = new Salary();
+//				salary.setDept(JOptionPane.showInputDialog("부서를 입력하세요."));
+//				salary.setName(JOptionPane.showInputDialog("이름을 입력하세요."));
+//				salary.setSal(Integer.parseInt(JOptionPane.showInputDialog("본봉을 입력하세요.")));
+//				salary.setTotal();
 				arrSalary[count] = salary;
 				count++;
 				break;

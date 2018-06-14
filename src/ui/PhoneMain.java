@@ -21,9 +21,6 @@ public class PhoneMain {
 				Butt.Galaxy
 		};
 		Phone phone = null;
-		CellPhone cp = null;
-		IPhone ip = null;
-		Galaxy gp = null;
 		while(true) {
 			Butt select = (Butt)JOptionPane.showInputDialog(
 					null,
@@ -44,26 +41,26 @@ public class PhoneMain {
 				JOptionPane.showMessageDialog(null,phone.toString());
 				break;
 			case CELLPHONE :
-				cp = new CellPhone();
-				cp.setName(JOptionPane.showInputDialog("이름"));
-				cp.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				cp.setCall(JOptionPane.showInputDialog("통화내용"));
-				JOptionPane.showMessageDialog(null,cp.toString());
+				phone = new CellPhone();
+				phone.setName(JOptionPane.showInputDialog("이름"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				phone.setCall(JOptionPane.showInputDialog("통화내용"));
+				JOptionPane.showMessageDialog(null,phone.toString());
 				break;
 			case IPHONE :
-				ip = new IPhone();
-				ip.setName(JOptionPane.showInputDialog("이름"));
-				ip.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				ip.setData(JOptionPane.showInputDialog("문자내용"));
-				JOptionPane.showMessageDialog(null,ip.toString());
+				phone = new IPhone();
+				phone.setName(JOptionPane.showInputDialog("이름"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				((IPhone) phone).setData(JOptionPane.showInputDialog("문자내용"));
+				JOptionPane.showMessageDialog(null,phone.toString());
 				break;
 			case Galaxy :
-				gp = new Galaxy();
-				gp.setName(JOptionPane.showInputDialog("이름"));
-				gp.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
-				gp.setSize();
-				gp.setData(JOptionPane.showInputDialog("카톡내용"));
-				JOptionPane.showMessageDialog(null,gp.toString());
+				phone = new Galaxy();
+				phone.setName(JOptionPane.showInputDialog("이름"));
+				phone.setPhoneNum(JOptionPane.showInputDialog("전화번호"));
+				((Galaxy) phone).setSize();
+				((Galaxy) phone).setData(JOptionPane.showInputDialog("카톡내용"));
+				JOptionPane.showMessageDialog(null,phone.toString());
 				break;
 			}
 		}
