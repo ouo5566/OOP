@@ -77,9 +77,6 @@ public class Main {
 			case "7":
 				lotto = new Lotto();
 				lotto.setMoney(Integer.parseInt(JOptionPane.showInputDialog("얼마치 구입하시겠습니까?")));
-				lotto.setCount();
-				lotto.setBall();
-				lotto.setResult();
 				break;
 			case "8":
 				output = lotto.getResult();

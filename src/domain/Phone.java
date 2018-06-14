@@ -1,7 +1,7 @@
 package domain;
 
 public class Phone {
-	private String name, phoneNum, kind, call;
+	private String name, phoneNum, call;
 	public static final String BRAND = "삼성", KIND = "집전화기";
 	public void setName(String name) {
 		this.name = name;

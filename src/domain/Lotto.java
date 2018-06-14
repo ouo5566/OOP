@@ -8,9 +8,11 @@ public class Lotto {
 	int[][] ball;
 	int money, count;
 	String result;
+	boolean error;
 
 	public void setMoney(int money) {
 		this.money = money;
+		setCount();
 	}
 
 	public void setCount() {
@@ -18,6 +20,7 @@ public class Lotto {
 		if (count > 5) {
 			this.count = 5;
 		}
+		setBall();
 	}
 
 	public void setBall() {
@@ -25,8 +28,13 @@ public class Lotto {
 		for (int j = 0; j < count; j++) {
 			for (int i = 0; i < 6; i++) {
 				this.ball[j][i] = (int) (Math.random() * 45) + 1;
+				setError(ball,ball[j][i],i,j);
+				if (isError()) {
+					i--;
+				}
 			}
 		}
+		setResult();
 	}
 
 	public void setResult() {
@@ -39,6 +47,15 @@ public class Lotto {
 		}
 	}
 
+	public void setError(int[][] arrBall, int ball, int i, int j) {
+		this.error = false;
+		for (int k = 0; k < i; k++) {
+			if(arrBall[j][k] == ball) {
+				this.error = true;
+			}
+		}
+	}
+	
 	public int getMoney() {
 		return money;
 	}
@@ -53,5 +70,9 @@ public class Lotto {
 
 	public String getResult() {
 		return result;
+	}
+
+	public boolean isError() {
+		return error;
 	}
 }

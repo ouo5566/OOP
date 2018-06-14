@@ -33,7 +33,7 @@ public class Account {
 	}
 	public void setCreateDate() {
 		Date today = new Date();
-		SimpleDateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat date = new SimpleDateFormat("yyyy년 MM월 dd일");
 		this.createDate = date.format(today);
 	}
 	public int getMoney() {
