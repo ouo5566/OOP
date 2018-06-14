@@ -16,44 +16,48 @@ public class Lotto {
 	}
 
 	public void setCount() {
-		this.count = money / 1000;
-		if (count > 5) {
-			this.count = 5;
+		int cnt = money / 1000;
+		if (cnt > 5) {
+			cnt = 5;
 		}
+		this.count = cnt;
 		setBall();
 	}
 
 	public void setBall() {
-		ball = new int[count][6];
+		int[][] arrBall = new int[count][6];
 		for (int j = 0; j < count; j++) {
 			for (int i = 0; i < 6; i++) {
-				this.ball[j][i] = (int) (Math.random() * 45) + 1;
-				setError(ball,ball[j][i],i,j);
+				arrBall[j][i] = (int) (Math.random() * 45) + 1;
+				setError(arrBall,arrBall[j][i],i,j);
 				if (isError()) {
 					i--;
 				}
 			}
 		}
+		this.ball = arrBall;
 		setResult();
 	}
 
 	public void setResult() {
-		this.result = "";
+		String res = "";
 		for (int j = 0; j < count; j++) {
 			for (int i = 0; i < 6; i++) {
-				this.result += ball[j][i] + " ";
+				res += String.format("[%02d]",ball[j][i]);
 			}
-			this.result += "\n";
+			res += "\n";
 		}
+		this.result = res;
 	}
 
-	public void setError(int[][] arrBall, int ball, int i, int j) {
-		this.error = false;
+	public void setError(int[][] arrBall, int unitBall, int i, int j) {
+		boolean err = false;
 		for (int k = 0; k < i; k++) {
-			if(arrBall[j][k] == ball) {
-				this.error = true;
+			if(arrBall[j][k] == unitBall) {
+				err = true;
 			}
 		}
+		this.error = err;
 	}
 	
 	public int getMoney() {
