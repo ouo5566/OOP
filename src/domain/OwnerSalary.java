@@ -3,7 +3,7 @@ package domain;
 public class OwnerSalary extends SteffSalary{
 	public static final String DEPT = "이사회";
 	protected int share; // ( sal + bonus ) * 10
-	public OwnerSalary(String name, int sal) {
+	public OwnerSalary(String name, String sal) {
 		super(name, sal);
 		this.name = name.substring(0,1) + "이사";
 		setDept(DEPT);

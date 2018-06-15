@@ -4,13 +4,16 @@ public class Salary {
 	public static final String DEPT = "인턴십";
 	protected String dept, name;
 	protected int sal;
-	public Salary(String name,int sal) {
+	public Salary(String name, String sal) {
 		this.name = name.substring(0,1)+"인턴";
-		this.sal = sal;
+		setSal(sal);
 		setDept(DEPT);
 	}
 	public void setDept(String dept) {
 		this.dept = dept;
+	}
+	public void setSal(String sal) {
+		this.sal = Integer.parseInt(sal);
 	}
 	public String getDept() {
 		return dept;

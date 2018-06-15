@@ -3,7 +3,7 @@ package domain;
 public class SteffSalary extends Salary {
 	public static final String DEPT = "정직원";
 	protected int bonus; // 기본급의 10%
-	public SteffSalary(String name, int sal) {
+	public SteffSalary(String name, String sal) {
 		super(name, sal);
 		this.name = name.substring(0,1) + "직원";
 		setDept(DEPT);

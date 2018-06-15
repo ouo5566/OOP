@@ -21,15 +21,15 @@ public class SalaryMain {
 				return;
 			case DEPT:
 				JOptionPane.showMessageDialog(null, new Salary(JOptionPane.showInputDialog("이름"),
-						Integer.parseInt(JOptionPane.showInputDialog("기본급"))).toString());
+						JOptionPane.showInputDialog("기본급")).toString());
 				break;
 			case STEFF:
 				JOptionPane.showMessageDialog(null, new SteffSalary(JOptionPane.showInputDialog("이름"),
-						Integer.parseInt(JOptionPane.showInputDialog("기본급"))).toString());
+						JOptionPane.showInputDialog("기본급")).toString());
 				break;
 			case OWNER:
 				JOptionPane.showMessageDialog(null, new OwnerSalary(JOptionPane.showInputDialog("이름"),
-						Integer.parseInt(JOptionPane.showInputDialog("기본급"))).toString());
+						JOptionPane.showInputDialog("기본급")).toString());
 				break;
 			}
 		}
