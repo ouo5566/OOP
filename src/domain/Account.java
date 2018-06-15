@@ -19,7 +19,7 @@ public class Account {
 		this.password = password;
 	}
 	public void setMoney(int money) {
-		this.money += money;
+		this.money = money;
 	}
 	public void setPW(String password) {
 		this.password = password;
